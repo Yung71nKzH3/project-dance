@@ -1,0 +1,91 @@
+{
+  "id": "track_funk_step",
+  "title": "Electro Funk Step (Beginner)",
+  "artist": "Groove Machine VR",
+  "bpm": 110,
+  "duration": 36.0,
+  "difficulty": "Easy",
+  "videoSrc": "procedural",
+  "keyframes": [
+    {
+      "time": 2.0,
+      "duration": 0.6,
+      "moveName": "Center Stance",
+      "color": "#00e5ff",
+      "leftHand": { "x": -0.25, "y": 1.25, "z": -0.45 },
+      "rightHand": { "x": 0.25, "y": 1.25, "z": -0.45 }
+    },
+    {
+      "time": 5.0,
+      "duration": 0.6,
+      "moveName": "Right Wave",
+      "color": "#ff3d00",
+      "leftHand": { "x": -0.25, "y": 1.10, "z": -0.40 },
+      "rightHand": { "x": 0.45, "y": 1.55, "z": -0.45 }
+    },
+    {
+      "time": 8.0,
+      "duration": 0.6,
+      "moveName": "Left Wave",
+      "color": "#00e5ff",
+      "leftHand": { "x": -0.45, "y": 1.55, "z": -0.45 },
+      "rightHand": { "x": 0.25, "y": 1.10, "z": -0.40 }
+    },
+    {
+      "time": 11.0,
+      "duration": 0.6,
+      "moveName": "Together Up",
+      "color": "#76ff03",
+      "leftHand": { "x": -0.25, "y": 1.70, "z": -0.45 },
+      "rightHand": { "x": 0.25, "y": 1.70, "z": -0.45 }
+    },
+    {
+      "time": 14.0,
+      "duration": 0.6,
+      "moveName": "Together Down",
+      "color": "#ffea00",
+      "leftHand": { "x": -0.25, "y": 0.95, "z": -0.40 },
+      "rightHand": { "x": 0.25, "y": 0.95, "z": -0.40 }
+    },
+    {
+      "time": 17.0,
+      "duration": 0.6,
+      "moveName": "Wide Open",
+      "color": "#d500f9",
+      "leftHand": { "x": -0.55, "y": 1.35, "z": -0.40 },
+      "rightHand": { "x": 0.55, "y": 1.35, "z": -0.40 }
+    },
+    {
+      "time": 20.0,
+      "duration": 0.6,
+      "moveName": "Clap Position",
+      "color": "#ff007f",
+      "leftHand": { "x": -0.08, "y": 1.30, "z": -0.42 },
+      "rightHand": { "x": 0.08, "y": 1.30, "z": -0.42 }
+    },
+    {
+      "time": 23.0,
+      "duration": 0.6,
+      "moveName": "Diagonal Up-Right",
+      "color": "#00e5ff",
+      "leftHand": { "x": -0.20, "y": 1.05, "z": -0.35 },
+      "rightHand": { "x": 0.50, "y": 1.65, "z": -0.45 }
+    },
+    {
+      "time": 26.0,
+      "duration": 0.6,
+      "moveName": "Diagonal Up-Left",
+      "color": "#ff3d00",
+      "leftHand": { "x": -0.50, "y": 1.65, "z": -0.45 },
+      "rightHand": { "x": 0.20, "y": 1.05, "z": -0.35 }
+    },
+    {
+      "time": 29.0,
+      "duration": 0.6,
+      "moveName": "Victory High Hands",
+      "color": "#ffd600",
+      "leftHand": { "x": -0.40, "y": 1.85, "z": -0.45 },
+      "rightHand": { "x": 0.40, "y": 1.85, "z": -0.45 }
+    }
+  ]
+}

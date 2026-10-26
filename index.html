@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Cyber Groove VR - WebXR Hand Tracking Dance Game</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- 3D WebGL / WebXR Viewport -->
+  <div id="canvas-container"></div>
+
+  <!-- Desktop HUD Overlay (Visible during gameplay on 2D screens) -->
+  <div id="desktop-hud" class="hidden">
+    <div class="hud-card">
+      <div class="hud-item">
+        <span class="hud-label">SCORE</span>
+        <span id="hud-score" class="hud-value score">0</span>
+      </div>
+      <div class="hud-item">
+        <span class="hud-label">COMBO</span>
+        <span id="hud-combo" class="hud-value combo">0 (1X)</span>
+      </div>
+      <div class="hud-item">
+        <span class="hud-label">ACCURACY</span>
+        <span id="hud-accuracy" class="hud-value acc">100%</span>
+      </div>
+    </div>
+    <div class="hud-controls-hint">
+      <span>[Space] Pause / Play</span>
+      <span>[R] Restart</span>
+      <span>[Esc] Menu</span>
+      <span>[B] Auto-Bot</span>
+    </div>
+  </div>
+
+  <!-- 2D Cyber Notification Toast (Replaces intrusive alert popups) -->
+  <div id="cyber-toast" class="cyber-toast hidden">
+    <div class="toast-icon" id="toast-icon">ℹ️</div>
+    <div class="toast-content">
+      <div class="toast-title" id="toast-title">NOTIFICATION</div>
+      <div class="toast-message" id="toast-message">Ready</div>
+    </div>
+  </div>
+
+  <!-- Start Menu & Setup Overlay (Focused on Video Upload & AI Choreography) -->
+  <div id="menu-overlay">
+    <div class="menu-modal">
+      <div class="badge">WEBXR AI DANCE ENGINE</div>
+      <h1 class="glow-title">CYBER GROOVE VR</h1>
+      <p class="tagline">Upload Any Dance Video &bull; MediaPipe AI Extracts the Routine &bull; Dance in VR</p>
+
+      <!-- Primary AI Video Upload Hub -->
+      <div class="video-ai-hub">
+        <div class="upload-dropzone" id="upload-dropzone">
+          <input type="file" id="custom-video-input" accept="video/mp4,video/webm" class="hidden-file-input">
+          <div class="dropzone-inner" id="dropzone-prompt">
+            <span class="dropzone-icon">🎬</span>
+            <span class="dropzone-title">DROP MP4 / WEBM DANCE VIDEO HERE</span>
+            <span class="dropzone-sub">or click to browse from device</span>
+          </div>
+          <div class="dropzone-loaded hidden" id="dropzone-loaded">
+            <span class="file-icon">✅</span>
+            <span class="file-name" id="selected-video-name">dance_routine.mp4</span>
+            <button type="button" class="btn-change-file" id="btn-change-video">Change</button>
+          </div>
+        </div>
+
+        <div class="url-input-row">
+          <span>Or Direct URL:</span>
+          <input type="url" id="custom-video-url" placeholder="https://.../dance.mp4" class="cyber-url-input">
+        </div>
+
+        <!-- AI Choreography Generator Action -->
+        <button id="btn-scan-ai" class="cyber-btn ai-scan-hero-btn">
+          🤖 AUTO-GENERATE VR ROUTINE WITH MEDIAPIPE AI
+        </button>
+
+        <!-- Real-Time AI Scan Progress Bar -->
+        <div id="ai-scan-progress" class="hidden">
+          <div class="progress-bar-container">
+            <div id="ai-scan-fill" class="progress-bar-fill"></div>
+          </div>
+          <div id="ai-scan-status" class="scan-status-text">Scanning dancer poses... 0%</div>
+        </div>
+      </div>
+
+      <!-- Primary Action Buttons -->
+      <div class="btn-group-primary">
+        <button id="btn-enter-vr" class="cyber-btn vr-btn" disabled>
+          🥽 CHECKING VR SUPPORT...
+        </button>
+        <button id="btn-play-song" class="cyber-btn play-btn">
+          ▶ PLAY ROUTINE (BROWSER / VR)
+        </button>
+      </div>
+
+      <!-- Quick Settings Drawer (Simplified) -->
+      <div class="settings-grid-compact">
+        <div class="setting-item">
+          <label for="track-select">Select Routine / PC Video:</label>
+          <select id="track-select" class="cyber-select">
+            <option value="track1" selected>Cosmic Groove - 128 BPM (Medium)</option>
+            <option value="track2">Electro Funk Step - 110 BPM (Beginner)</option>
+          </select>
+        </div>
+
+        <div class="setting-item">
+          <label for="height-slider">Player Height Calibration: <span id="height-val">0.00m</span></label>
+          <input type="range" id="height-slider" min="-0.4" max="0.4" step="0.05" value="0">
+        </div>
+      </div>
+
+      <div class="desktop-test-bar">
+        <button id="btn-toggle-bot" class="cyber-btn secondary-btn">
+          Auto-Bot Dancer: OFF (Press B)
+        </button>
+      </div>
+
+      <div class="instructions-pills">
+        <div class="pill">
+          <span class="pill-icon">📁</span>
+          <span><strong>PC Video Streaming:</strong> Drop MP4/WebM files into <code style="color: #00f3ff">videos/</code> on PC to stream to Quest with 0 MB headset storage!</span>
+        </div>
+        <div class="pill connection-pill">
+          <span class="pill-icon">🥽</span>
+          <span><strong>Quest Headset:</strong> Run <code style="color: #00f3ff">npm run remote</code> in terminal for trusted HTTPS without SSL blocks.</span>
+        </div>
+        <div class="pill">
+          <span class="pill-icon">🖐</span>
+          <span><strong>Behind-the-User Status:</strong> Look behind you in VR to see the dedicated 3D Notification & Error Console.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Video Snapshot Studio & Auto-Pose Extractor Modal -->
+  <div id="snapshot-studio-modal" class="hidden">
+    <div class="studio-modal">
+      <div class="studio-header">
+        <div>
+          <h2>📸 VIDEO SNAPSHOT & CHOREOGRAPHY STUDIO</h2>
+          <p class="tagline">Sample live video frames to automatically extract where hands should be!</p>
+        </div>
+        <button id="btn-close-studio" class="cyber-btn-close">✕</button>
+      </div>
+
+      <div class="studio-body">
+        <div class="studio-viewport-panel">
+          <canvas id="studio-preview-canvas" width="640" height="360"></canvas>
+          <div class="scrub-controls">
+            <span id="studio-scrub-time" class="time-label">0.0s</span>
+            <input type="range" id="studio-scrub-slider" min="0" max="48" step="0.1" value="0">
+            <button id="btn-snap-current" class="cyber-btn snap-action-btn">
+              📸 SNAP THIS POSE
+            </button>
+          </div>
+        </div>
+
+        <div class="studio-sidebar-panel">
+          <div class="sidebar-section">
+            <h3>⚡ Quick Auto-Extractor</h3>
+            <p>Automatically sample video at rhythmic beat intervals:</p>
+            <div class="auto-extract-controls">
+              <select id="beats-per-snap" class="cyber-select">
+                <option value="2">Every 2 Beats (Fast Poses)</option>
+                <option value="4" selected>Every 4 Beats (1 Measure - Recommended)</option>
+                <option value="8">Every 8 Beats (Chilled Snapshots)</option>
+              </select>
+              <button id="btn-auto-extract" class="cyber-btn action-btn">
+                ✨ EXTRACT SNAPSHOTS
+              </button>
+            </div>
+          </div>
+
+          <div class="sidebar-section scrollable">
+            <h3>Extracted Checkpoint Poses</h3>
+            <div id="studio-snapshots-list" class="snapshots-list"></div>
+          </div>
+
+          <div class="sidebar-actions">
+            <button id="btn-play-extracted" class="cyber-btn play-btn">
+              ▶ PLAY THIS ROUTINE IN VR
+            </button>
+            <button id="btn-export-json" class="cyber-btn secondary-btn">
+              💾 EXPORT CHOREO JSON
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>

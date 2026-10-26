@@ -1,0 +1,179 @@
+{
+  "id": "track_neon_rush",
+  "title": "Cosmic Groove (Neon Rush)",
+  "artist": "Synthwave Beat Syndicate",
+  "bpm": 128,
+  "duration": 48.0,
+  "difficulty": "Medium",
+  "videoSrc": "procedural",
+  "keyframes": [
+    {
+      "time": 2.0,
+      "duration": 0.5,
+      "moveName": "Ready Stance",
+      "color": "#00f3ff",
+      "leftHand": { "x": -0.25, "y": 1.25, "z": -0.45 },
+      "rightHand": { "x": 0.25, "y": 1.25, "z": -0.45 }
+    },
+    {
+      "time": 4.0,
+      "duration": 0.5,
+      "moveName": "Disco Point Left",
+      "color": "#ff007f",
+      "leftHand": { "x": -0.55, "y": 1.70, "z": -0.50 },
+      "rightHand": { "x": 0.20, "y": 0.95, "z": -0.30 }
+    },
+    {
+      "time": 6.0,
+      "duration": 0.5,
+      "moveName": "Disco Point Right",
+      "color": "#00f3ff",
+      "leftHand": { "x": -0.20, "y": 0.95, "z": -0.30 },
+      "rightHand": { "x": 0.55, "y": 1.70, "z": -0.50 }
+    },
+    {
+      "time": 8.0,
+      "duration": 0.5,
+      "moveName": "Crossed Arms X",
+      "color": "#ffdd00",
+      "leftHand": { "x": 0.15, "y": 1.35, "z": -0.40 },
+      "rightHand": { "x": -0.15, "y": 1.35, "z": -0.40 }
+    },
+    {
+      "time": 10.0,
+      "duration": 0.5,
+      "moveName": "Open Chest Wings",
+      "color": "#00ff88",
+      "leftHand": { "x": -0.65, "y": 1.35, "z": -0.40 },
+      "rightHand": { "x": 0.65, "y": 1.35, "z": -0.40 }
+    },
+    {
+      "time": 12.0,
+      "duration": 0.5,
+      "moveName": "High Double Reach",
+      "color": "#ff00aa",
+      "leftHand": { "x": -0.35, "y": 1.85, "z": -0.45 },
+      "rightHand": { "x": 0.35, "y": 1.85, "z": -0.45 }
+    },
+    {
+      "time": 14.0,
+      "duration": 0.5,
+      "moveName": "Drop the Bass (Low)",
+      "color": "#00e1ff",
+      "leftHand": { "x": -0.30, "y": 0.85, "z": -0.45 },
+      "rightHand": { "x": 0.30, "y": 0.85, "z": -0.45 }
+    },
+    {
+      "time": 16.0,
+      "duration": 0.5,
+      "moveName": "Left Wave Roll",
+      "color": "#ff6600",
+      "leftHand": { "x": -0.60, "y": 1.50, "z": -0.50 },
+      "rightHand": { "x": -0.20, "y": 1.30, "z": -0.45 }
+    },
+    {
+      "time": 18.0,
+      "duration": 0.5,
+      "moveName": "Right Wave Roll",
+      "color": "#a800ff",
+      "leftHand": { "x": 0.20, "y": 1.30, "z": -0.45 },
+      "rightHand": { "x": 0.60, "y": 1.50, "z": -0.50 }
+    },
+    {
+      "time": 20.0,
+      "duration": 0.5,
+      "moveName": "Air Drums",
+      "color": "#00ffc4",
+      "leftHand": { "x": -0.25, "y": 1.15, "z": -0.55 },
+      "rightHand": { "x": 0.25, "y": 1.15, "z": -0.55 }
+    },
+    {
+      "time": 22.0,
+      "duration": 0.5,
+      "moveName": "Diagonal Slice Left",
+      "color": "#ff0055",
+      "leftHand": { "x": -0.50, "y": 1.65, "z": -0.45 },
+      "rightHand": { "x": 0.15, "y": 1.05, "z": -0.40 }
+    },
+    {
+      "time": 24.0,
+      "duration": 0.5,
+      "moveName": "Diagonal Slice Right",
+      "color": "#00ffff",
+      "leftHand": { "x": -0.15, "y": 1.05, "z": -0.40 },
+      "rightHand": { "x": 0.50, "y": 1.65, "z": -0.45 }
+    },
+    {
+      "time": 26.0,
+      "duration": 0.5,
+      "moveName": "Speed Jab Left",
+      "color": "#ffe600",
+      "leftHand": { "x": -0.20, "y": 1.40, "z": -0.65 },
+      "rightHand": { "x": 0.20, "y": 1.30, "z": -0.35 }
+    },
+    {
+      "time": 28.0,
+      "duration": 0.5,
+      "moveName": "Speed Jab Right",
+      "color": "#ffe600",
+      "leftHand": { "x": -0.20, "y": 1.30, "z": -0.35 },
+      "rightHand": { "x": 0.20, "y": 1.40, "z": -0.65 }
+    },
+    {
+      "time": 30.0,
+      "duration": 0.5,
+      "moveName": "Double Chest Clasp",
+      "color": "#ff00bb",
+      "leftHand": { "x": -0.12, "y": 1.35, "z": -0.40 },
+      "rightHand": { "x": 0.12, "y": 1.35, "z": -0.40 }
+    },
+    {
+      "time": 32.0,
+      "duration": 0.5,
+      "moveName": "Sky Explosion (Wide V)",
+      "color": "#00ffea",
+      "leftHand": { "x": -0.70, "y": 1.80, "z": -0.45 },
+      "rightHand": { "x": 0.70, "y": 1.80, "z": -0.45 }
+    },
+    {
+      "time": 34.0,
+      "duration": 0.5,
+      "moveName": "Side Push Left",
+      "color": "#ff4400",
+      "leftHand": { "x": -0.65, "y": 1.30, "z": -0.45 },
+      "rightHand": { "x": -0.30, "y": 1.30, "z": -0.45 }
+    },
+    {
+      "time": 36.0,
+      "duration": 0.5,
+      "moveName": "Side Push Right",
+      "color": "#3388ff",
+      "leftHand": { "x": 0.30, "y": 1.30, "z": -0.45 },
+      "rightHand": { "x": 0.65, "y": 1.30, "z": -0.45 }
+    },
+    {
+      "time": 38.0,
+      "duration": 0.5,
+      "moveName": "Infinity Loop",
+      "color": "#e100ff",
+      "leftHand": { "x": -0.25, "y": 1.50, "z": -0.45 },
+      "rightHand": { "x": 0.25, "y": 1.20, "z": -0.45 }
+    },
+    {
+      "time": 40.0,
+      "duration": 0.5,
+      "moveName": "Heart Pose",
+      "color": "#ff0066",
+      "leftHand": { "x": -0.10, "y": 1.45, "z": -0.38 },
+      "rightHand": { "x": 0.10, "y": 1.45, "z": -0.38 }
+    },
+    {
+      "time": 42.0,
+      "duration": 0.5,
+      "moveName": "Grand Finale Pose",
+      "color": "#ffd700",
+      "leftHand": { "x": -0.60, "y": 1.90, "z": -0.50 },
+      "rightHand": { "x": 0.25, "y": 0.90, "z": -0.30 }
+    }
+  ]
+}
